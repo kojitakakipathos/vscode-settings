@@ -1,0 +1,98 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontSize": 15,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.suggestSmartCommit": false,
+  "githubPullRequests.pullBranch": "never",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "files.autoSave": "onFocusChange",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "terminal.integrated.fontFamily": "HackGen Console NF",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "oxc_language_server.enable": true,
+  "window.zoomLevel": -1,
+  "rust-analyzer.check.overrideCommand": null,
+  "rust-analyzer.cargo.buildScripts.overrideCommand": null,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.inlayHints.enabled": "on"
+  },
+  "rust-analyzer.check.command": "clippy",
+  "statusbarerror.wholeLine.show": true,
+  "editor.lineNumbers": "relative",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "*"],
+      "after": ["*", "'", "'", "c", "g", "n"]
+    }
+  ],
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["<leader>", "<leader>"], // easy motion時に1文字で検索するのではなく、2文字で検索する
+      "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
+    }
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    },
+    // {
+    //   "before": ["<C-p>"],
+    //   "commands": ["workbench.action.quickOpen"]
+    // },
+    {
+      "before": ["<C-w>"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "key": "ctrl+v",
+      "command": "editor.action.clipboardPasteAction",
+      "when": "editorTextFocus && !inDebugRepl && vim.mode == 'Insert'"
+    },
+    {
+      "key": "ctrl+a",
+      "command": "editor.action.selectAll",
+      "when": "editorTextFocus && !inDebugRepl"
+    },
+    {
+      "key": "ctrl+c",
+      "command": "editor.action.clipboardCopyAction",
+      "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    {
+      "key": "ctrl+n",
+      "command": "workbench.action.files.newUntitledFile",
+      "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'"
+    },
+    // ターミナルへフォーカス
+    { "key": ["<C-j>"], "command": "workbench.action.terminal.focus" }
+  ],
+  "vim.leader": "<space>",
+  "vim.easymotion": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": false,
+  "vim.handleKeys": {
+    //以下はVimではなく、Windows側のショートカット
+    "<C-c>": false, //コピー
+    "<C-v>": false, //貼り付け ※VisualBlockモードはCtrl＋Qで行う
+    "<C-x>": false, //切り取り
+    "<C-f>": false, //検索
+    "<C-a>": false, //全選択
+    // "<C-p>": false, //ファイル検索
+    "<C-w>": false, //ファイルを閉じる
+    "<C-j>": false //vscodeのターミナルをトグルする
+  },
+  "workbench.colorTheme": "Default Dark Modern",
+  "powermode.enabled": false
+}
