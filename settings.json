@@ -4,7 +4,7 @@
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "workbench.iconTheme": "material-icon-theme",
   "editor.fontSize": 15,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "diffEditor.ignoreTrimWhitespace": true,
   "git.suggestSmartCommit": false,
   "githubPullRequests.pullBranch": "never",
   "typescript.updateImportsOnFileMove.enabled": "always",
@@ -15,9 +15,8 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "terminal.integrated.fontFamily": "HackGen Console NF",
+  "terminal.integrated.fontFamily": "'HackGen Console NF'",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "oxc_language_server.enable": true,
   "window.zoomLevel": -1,
   "rust-analyzer.check.overrideCommand": null,
   "rust-analyzer.cargo.buildScripts.overrideCommand": null,
@@ -30,13 +29,32 @@
   "rust-analyzer.check.command": "clippy",
   "statusbarerror.wholeLine.show": true,
   "editor.lineNumbers": "relative",
+  "vim.surround": true,
   "vim.normalModeKeyBindingsNonRecursive": [
+    // 同文字列配下の文字列を置換
     {
       "before": ["<leader>", "*"],
       "after": ["*", "'", "'", "c", "g", "n"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["H"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["L"],
+      "commands": ["workbench.action.nextEditor"]
     }
   ],
   "vim.normalModeKeyBindings": [
+    // easy motionを2文字で検索
     {
       "before": ["<leader>", "<leader>"], // easy motion時に1文字で検索するのではなく、2文字で検索する
       "after": ["<leader>", "<leader>", "2", "s", "<char>", "<char>"]
@@ -47,10 +65,6 @@
       "before": ["j", "j"],
       "after": ["<Esc>"]
     },
-    // {
-    //   "before": ["<C-p>"],
-    //   "commands": ["workbench.action.quickOpen"]
-    // },
     {
       "before": ["<C-w>"],
       "commands": ["workbench.action.closeActiveEditor"]
@@ -76,8 +90,32 @@
       "when": "editorTextFocus && !inDebugRepl && vim.mode != 'Insert'"
     },
     // ターミナルへフォーカス
-    { "key": ["<C-j>"], "command": "workbench.action.terminal.focus" }
+    { "key": ["<C-j>"], "command": "workbench.action.terminal.focus" },
+    // vscodeのctrl+D 機能を使用する
+    {
+      "before": ["<C-d>"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"]
+    },
+    {
+      "before": ["<C-u>"],
+      "commands": ["cursorUndo"]
+    }
   ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-d>"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"]
+    },
+    {
+      "before": ["<C-u>"],
+      "commands": ["cursorUndo"]
+    },
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+
   "vim.leader": "<space>",
   "vim.easymotion": true,
   "vim.useSystemClipboard": true,
@@ -89,10 +127,19 @@
     "<C-x>": false, //切り取り
     "<C-f>": false, //検索
     "<C-a>": false, //全選択
-    // "<C-p>": false, //ファイル検索
+    "<C-p>": false, //ファイル検索
     "<C-w>": false, //ファイルを閉じる
     "<C-j>": false //vscodeのターミナルをトグルする
   },
-  "workbench.colorTheme": "Default Dark Modern",
-  "powermode.enabled": false
+  "editor.multiCursorModifier": "ctrlCmd",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.fontFamily": "HackGen, Consolas, 'Courier New', monospace",
+  "vim.autoSwitchInputMethod.enable": true,
+  "vim.autoSwitchInputMethod.defaultIM": "0",
+  "vim.autoSwitchInputMethod.obtainIMCmd": "C:\\Users/kojit/dev/tools/zenhan/zenhan/bin64/zenhan.exe",
+  "vim.autoSwitchInputMethod.switchIMCmd": "C:\\Users/kojit/dev/tools/zenhan/zenhan/bin64\\zenhan.exe {im}",
+  "pasteImage.path": "${projectRoot}/apps/wiki/static/img",
+  "pasteImage.showFilePathConfirmInputBox": true,
+  "hediet.vscode-drawio.resizeImages": null,
+  "workbench.colorTheme": "Default Dark Modern"
 }
